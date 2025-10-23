@@ -4,3 +4,4 @@ psycopg2-binary
 Jinja2
 passlib[bcrypt]
 python-dotenv
+gunicorn==21.2.0
