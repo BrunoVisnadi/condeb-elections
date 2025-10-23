@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block content %}
+<p><a href="/logout">Logout</a> {% if user.is_admin %}| <a href="/admin">Admin</a>{% endif %}</p>
+
+<div class="card">
+  <h3>Ballot</h3>
+  {% if error %}<div class="err">{{error}}</div>{% endif %}
+  {% if ok %}<div class="ok">{{ok}}</div>{% endif %}
+  <form method="post">
+    {% for e in elections %}
+      <div class="row" style="border-top:1px solid #eee;padding-top:12px;margin-top:12px">
+        <strong>{{e.title}}</strong><br>
+        {% if e.id in voted %}
+          <em>You have already voted in this election.</em>
+        {% else %}
+          {% for c in e.candidates %}
+            <label>
+               <input type="radio" name="e_{{e.id}}" value="{{c.id}}"
+           {% if loop.first %}required{% endif %}> {{c.name}}
+            </label><br>
+          {% endfor %}
+        {% endif %}
+      </div>
+    {% endfor %}
+    <div class="row"><label>Insira sua senha para submeter o voto<br>
+      <input type="password" name="password" required></label></div>
+    <button class="btn">Enviar</button>
+  </form>
+</div>
+{% endblock %}

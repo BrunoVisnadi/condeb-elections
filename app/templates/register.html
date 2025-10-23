@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card">
+  <h3>Criar conta</h3>
+  <p>Por favor, utilize o nome da sua socieade no campo <b>Usuário</b></p>
+  {% if error %}<div class="err">{{error}}</div>{% endif %}
+  <form method="post">
+    <div class="row"><label>Usuário<br><input name="username" required></label></div>
+    <div class="row"><label>Senha<br><input type="password" name="password" required></label></div>
+    <div class="row"><label>Confirme a senha<br><input type="password" name="confirm" required></label></div>
+    <button class="btn">Enviar</button>
+  </form>
+  <p><a href="/login">Voltar à página de login</a></p>
+</div>
+{% endblock %}

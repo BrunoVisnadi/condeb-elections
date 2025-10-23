@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block content %}
+<p><a href="/logout">Logout</a></p>
+<div class="card">
+  <h3>Resultados</h3>
+  {% for e, rows in results %}
+    <div class="row" style="border-top:1px solid #eee;padding-top:12px;margin-top:12px">
+      <strong>{{e.title}}</strong>
+      <ul>
+        {% for cid, name, cnt in rows %}
+          <li>{{name}} — {{cnt}}</li>
+        {% endfor %}
+      </ul>
+    </div>
+  {% endfor %}
+</div>
+{% endblock %}
