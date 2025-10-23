@@ -1,0 +1,6 @@
+Flask
+SQLAlchemy>=2.0
+psycopg2-binary
+Jinja2
+passlib[bcrypt]
+python-dotenv
