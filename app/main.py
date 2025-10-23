@@ -17,7 +17,7 @@ from werkzeug.security import generate_password_hash, check_password_hash
 
 # -------- Config --------
 BASE_DIR = Path(__file__).resolve().parent
-DATABASE_URL = os.getenv("DATABASE_URL") or f"sqlite:///{BASE_DIR/'app.db'}"
+DATABASE_URL = os.getenv("DATABASE_URL")
 SECRET_KEY = os.getenv("SECRET_KEY", "dev-unsafe")
 
 app = Flask(
