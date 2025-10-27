@@ -83,7 +83,7 @@ def get_current_user(db: Session) -> User | None:
 def require_login(db: Session) -> User:
     u = get_current_user(db)
     if not u: abort(401)
-    if not u.enabled: abort(403)
+    if not u.enabled: abort(403, description="A votação ainda não iniciou")
     return u
 
 def require_admin(db: Session) -> User:
